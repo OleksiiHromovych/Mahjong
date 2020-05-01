@@ -1,0 +1,3 @@
+The 144 tiles are arranged in a special four-layer pattern with their faces upwards. A tile is said to be open or exposed if it can be moved either left or right without disturbing other tiles. The goal is to match open pairs of identical tiles and remove them from the board, exposing the tiles under them for play. The game is finished when all pairs of tiles have been removed from the board or when there are no exposed pairs remaining.
+
+Tiles that are below other tiles cannot be seen. But by repeated undos or restarts which some programs offer, one gradually gets more and more information. Sometimes, tiles are only partially covered by other tiles, and the extent to which such tiles can be distinguished depends on the actual tile set.
