@@ -1,30 +1,31 @@
-from PyQt5 import QtCore
 from PyQt5 import QtWidgets
-from PyQt5.QtCore import Qt
-from PyQt5.QtGui import QPixmap
+from PyQt5.QtCore import Qt, QRect
+from PyQt5.QtGui import QPixmap, QIcon
 
 
 class Tile(QtWidgets.QLabel):
 
     def __init__(self, parent, value, posxyz, icon, function, card_size=(40, 60)):
         super().__init__(parent)
-        n = 9
+        self.n = 9
         self.value = value
-        self.x = posxyz[0] #+ 150
+        self.x = posxyz[0] + 150
         self.y = posxyz[1]
         self.z = posxyz[2]
+        self.setWindowIcon(QIcon("res/icons/icon.png"))
 
         self.function = function
 
         self.card_size = (card_size[0], card_size[1])
-        self.setGeometry(QtCore.QRect(self.x - self.z * 5, self.y - self.z * 5, self.card_size[0]+n, self.card_size[1]+n))
+        self.setGeometry(QRect(self.x - self.z * 3, self.y - self.z * 3, self.card_size[0]+self.n,
+                                      self.card_size[1]+self.n))
         self.set_image(icon)
 
         self.setObjectName("label")
 
     def set_image(self, value="1.png"):
         pixmap = QPixmap("res/tiles/" + value)
-        pixmap = pixmap.scaled(self.card_size[0] + 9, self.card_size[1] + 9)
+        pixmap = pixmap.scaled(self.card_size[0] + self.n, self.card_size[1] + self.n)
         self.setStyleSheet("background-color: transparent;")
         self.setPixmap(pixmap)
 
@@ -46,6 +47,7 @@ class Tile(QtWidgets.QLabel):
             if tile.z > self.z:
                 if ((tile.x + half_x == self.x or tile.x - half_x == self.x) and
                     (tile.y + half_y == self.y or tile.y - half_y == self.y)) or \
+                        (tile.x == self.x and tile.y == self.y) or \
                         (tile.x == self.x and (tile.y + half_y == self.y or tile.y - half_y == self.y)) or \
                         (tile.y == self.y and (tile.x + half_x == self.x or tile.x - half_x == self.x)):
 

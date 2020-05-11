@@ -1,20 +1,9 @@
-
-# -*- coding: utf-8 -*-
-
-# Form implementation generated from reading ui file 'main.ui'
-#
-# Created by: PyQt5 UI code generator 5.14.1
-#
-# WARNING! All changes made in this file will be lost!
-
-
 from PyQt5 import QtCore, QtWidgets
 
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        # MainWindow.resize(1150, 700)
         MainWindow.setFixedSize(1150, 800)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
@@ -24,6 +13,8 @@ class Ui_MainWindow(object):
         self.label.setObjectName("label")
         self.mask = QtWidgets.QLabel(self.centralwidget)
         self.mask.setObjectName("mask")
+        self.first_prompt = QtWidgets.QLabel(self.centralwidget)
+        self.second_prompt = QtWidgets.QLabel(self.centralwidget)
 
         self.menubar = QtWidgets.QMenuBar(MainWindow)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 1154, 26))
@@ -35,6 +26,8 @@ class Ui_MainWindow(object):
         self.restart.setObjectName("restart")
         self.goMenu = QtWidgets.QAction(MainWindow)
         self.goMenu.setObjectName("goMenu")
+        self.change_color = QtWidgets.QAction(MainWindow)
+        self.change_color.setObjectName("change_color")
         self.showInfo = QtWidgets.QAction(MainWindow)
         self.showInfo.setObjectName("goMenu")
         self.prompt = QtWidgets.QAction(MainWindow)
@@ -43,6 +36,7 @@ class Ui_MainWindow(object):
         self.menuOptions.addAction(self.restart)
         self.menuOptions.addAction(self.prompt)
         self.menuOptions.addAction(self.goMenu)
+        self.menuOptions.addAction(self.change_color)
         self.menuOptions.addAction(self.showInfo)
         self.menubar.addAction(self.menuOptions.menuAction())
 
@@ -58,3 +52,4 @@ class Ui_MainWindow(object):
         self.goMenu.setText(_translate("MainWindow", "Menu"))
         self.prompt.setText(_translate("MainWindow", "Prompt"))
         self.showInfo.setText(_translate("MainWindow", "Info"))
+        self.change_color.setText(_translate("MainWindow", "Color of card"))
