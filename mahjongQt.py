@@ -30,7 +30,6 @@ class Mahjong(QtWidgets.QMainWindow):
         self.dialog.exec_()
         if self.map is None:
             sys.exit()
-        self.start_game()
 
     def setup_board_element(self):
         self.setWindowTitle("Mahjong")
@@ -73,6 +72,7 @@ class Mahjong(QtWidgets.QMainWindow):
         icon_list = [val for val in icon_list for _ in range(2)]
 
         unique_icon = phantom_list[1].split(",")
+
         for icon_index in range(0, len(unique_icon), 2):
             index = random.randint(0, len(icon_list))
             if index % 2:
@@ -169,7 +169,6 @@ class Mahjong(QtWidgets.QMainWindow):
             self.ui.mask.setStyleSheet("background-color: rgba" + str((*color.getRgb()[:3], 70)))
 
     def check(self, tile):
-        print(tile.x, tile.y)
         if self.chosen_tile:
             if self.chosen_tile is tile:
                 self.chosen_tile = None

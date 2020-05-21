@@ -9,7 +9,7 @@ class Tile(QtWidgets.QLabel):
         super().__init__(parent)
         self.n = 9
         self.value = value
-        self.x = posxyz[0] + 150
+        self.x = posxyz[0] + 75
         self.y = posxyz[1]
         self.z = posxyz[2]
         self.setWindowIcon(QIcon("res/icons/icon.png"))
@@ -66,5 +66,8 @@ class Tile(QtWidgets.QLabel):
                 if (tile.y - half_y == self.y and tile.x + 2 * half_x == self.x) or \
                         (tile.y + half_y == self.y and tile.x + 2 * half_x == self.x):
                     left = True
+
+            if right and left:
+                return False
 
         return not (left and right)

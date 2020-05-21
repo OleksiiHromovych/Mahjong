@@ -103,6 +103,6 @@ class Menu(QDialog):
 
     def onClicked(self):
         self.parent.map = self.map
-        self.parent.restart_game()
+        self.parent.start_game()
         self.close()
 
